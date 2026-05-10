@@ -1,0 +1,14 @@
+{
+  "name": "contact-card-with-agent-tool",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HubSpot contact card example backed by an agent-tool-style endpoint.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

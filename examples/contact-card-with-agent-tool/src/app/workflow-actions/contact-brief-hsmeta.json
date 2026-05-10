@@ -1,0 +1,73 @@
+{
+  "uid": "example-contact-brief",
+  "type": "workflow-action",
+  "config": {
+    "actionUrl": "https://your-host.example.com/api/contact-brief",
+    "isPublished": false,
+    "supportedClients": [
+      {
+        "client": "AGENTS",
+        "toolType": "GET_DATA",
+        "llmConfig": {
+          "actionDescription": "Use this tool when the user asks for a contact brief or recommended next step. Requires a contactId."
+        }
+      },
+      {
+        "client": "WORKFLOWS"
+      }
+    ],
+    "inputFields": [
+      {
+        "typeDefinition": {
+          "name": "contactId",
+          "type": "string",
+          "fieldType": "text"
+        },
+        "supportedValueTypes": [
+          "STATIC_VALUE"
+        ],
+        "isRequired": true
+      }
+    ],
+    "outputFields": [
+      {
+        "typeDefinition": {
+          "name": "brief",
+          "type": "string"
+        }
+      },
+      {
+        "typeDefinition": {
+          "name": "nextStep",
+          "type": "string"
+        }
+      },
+      {
+        "typeDefinition": {
+          "name": "status",
+          "type": "string"
+        }
+      }
+    ],
+    "objectTypes": [
+      "CONTACT"
+    ],
+    "labels": {
+      "en": {
+        "actionName": "Example Contact Brief",
+        "appDisplayName": "Example Contact Card Starter",
+        "actionDescription": "Returns a short contact brief and next step.",
+        "actionCardContent": "Returns a safe starter contact brief.",
+        "inputFieldLabels": {
+          "contactId": "Contact ID"
+        },
+        "outputFieldLabels": {
+          "brief": "Brief",
+          "nextStep": "Next Step",
+          "status": "Status"
+        }
+      }
+    }
+  }
+}
+

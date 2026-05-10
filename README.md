@@ -52,6 +52,8 @@ See [docs/choose-your-path.md](docs/choose-your-path.md).
 ## Repo Contents
 
 - `AGENTS.md`: instructions for AI coding agents.
+- `examples/basic-contact-card-serverless/`: a card that calls a HubSpot serverless function-style endpoint.
+- `examples/contact-card-with-agent-tool/`: a card pattern that calls an agent-tool-style backend endpoint.
 - `docs/contact-card-blueprint.md`: planning template for a card.
 - `docs/auth-options.md`: how to think about serverless functions, OAuth, and backend auth.
 - `docs/security-for-non-developers.md`: plain-English security guide.
@@ -62,3 +64,13 @@ See [docs/choose-your-path.md](docs/choose-your-path.md).
 
 Before using a contact card with real customer data, validate your own HubSpot scopes, app-card permissions, hosting security, auth model, logging, privacy requirements, and compliance needs.
 
+## Examples Included
+
+```text
+examples/basic-contact-card-serverless/
+examples/contact-card-with-agent-tool/
+```
+
+Use the serverless example when the card can stay mostly inside the HubSpot project model. Use the agent-tool example when the card should reuse a backend endpoint that can also power HubSpot agent tools or workflows.
+
+Both examples use generic placeholders and mock data first. Replace placeholders only after the user has chosen an auth model and hosting provider.

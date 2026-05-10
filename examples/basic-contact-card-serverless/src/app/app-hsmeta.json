@@ -1,0 +1,24 @@
+{
+  "uid": "example-contact-card-app",
+  "type": "app",
+  "config": {
+    "description": "Example HubSpot contact card starter. Replace placeholders before upload.",
+    "name": "Example Contact Card Starter",
+    "auth": {
+      "type": "oauth",
+      "redirectUrls": [
+        "https://your-host.example.com/oauth/callback"
+      ],
+      "requiredScopes": [
+        "crm.objects.contacts.read"
+      ],
+      "optionalScopes": []
+    },
+    "permittedUrls": {
+      "fetch": [
+        "https://your-host.example.com"
+      ]
+    }
+  }
+}
+
