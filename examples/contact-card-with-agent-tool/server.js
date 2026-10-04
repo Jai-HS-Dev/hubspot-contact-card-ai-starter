@@ -56,9 +56,15 @@ const server = http.createServer(async (request, response) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Contact card backend listening on http://localhost:${PORT}`);
-});
+function startServer(port = PORT) {
+  return server.listen(port, () => {
+    console.log(`Contact card backend listening on http://localhost:${port}`);
+  });
+}
+
+if (require.main === module) startServer();
+
+module.exports = { server, startServer };
 
 function isAuthorized(request) {
   const expected = String(process.env.CONTACT_BRIEF_SHARED_SECRET || '').trim();
@@ -86,4 +92,3 @@ function sendJson(response, statusCode, body) {
   });
   response.end(JSON.stringify(body, null, 2));
 }
-
