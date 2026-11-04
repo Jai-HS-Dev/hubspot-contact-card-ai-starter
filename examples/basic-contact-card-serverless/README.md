@@ -9,6 +9,14 @@ This example shows a simple HubSpot contact card pattern:
 
 The example uses mock data by default so users can understand the flow safely.
 
+This is an illustrative handler/card pattern, not a complete deployable project.
+For HubSpot hosting, create a Developer Project on platform `2026.09` and configure
+the function's metadata and required product entitlements using the current docs.
+Do not upload it as a legacy Design Manager `serverless.json` package. Managed
+project functions use Node.js 24; the handler already returns asynchronously.
+See `../../MIGRATION.md` for deadlines. Do not change hosting or credentials solely
+because this example's documentation was updated.
+
 ## Files
 
 - `src/app/app-hsmeta.json`: generic app metadata placeholder.
