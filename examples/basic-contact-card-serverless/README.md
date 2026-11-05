@@ -1,5 +1,13 @@
 # Basic Contact Card With Serverless Function
 
+**Example status:** Illustrative.
+**Local check:** No complete runnable/project check is claimed for this illustrative folder.
+**Developer-account verification:** Not verified.
+**Production prerequisites:** Review [the checklist](../../REAL_TOOL_CHECKLIST.md) and [evidence](../../EVIDENCE.md); no production implementation is included.
+
+Handler/card pattern only. Do not treat it as a complete deployable project or install its unpinned packages as a verified setup.
+
+
 This example shows a simple HubSpot contact card pattern:
 
 1. A card renders on a contact record.

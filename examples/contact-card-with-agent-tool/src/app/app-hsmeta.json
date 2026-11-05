@@ -1,0 +1,19 @@
+{
+  "uid": "example-secure-contact-brief-app",
+  "type": "app",
+  "config": {
+    "name": "Example Secure Contact Brief",
+    "description": "Read-only contact brief example. Configure and test before real use.",
+    "distribution": "private",
+    "auth": {
+      "type": "oauth",
+      "requiredScopes": ["oauth", "crm.objects.contacts.read"],
+      "redirectUrls": ["http://127.0.0.1:3000/oauth/callback"]
+    },
+    "permittedUrls": {
+      "fetch": ["https://your-host.example.com/api/contact-brief"],
+      "iframe": [],
+      "img": []
+    }
+  }
+}

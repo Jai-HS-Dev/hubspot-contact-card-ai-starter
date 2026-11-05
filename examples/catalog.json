@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-04",
+  "examples": [
+    {
+      "path": "examples/contact-card-with-agent-tool",
+      "status": "runnable-locally",
+      "localCheck": "smoke:example",
+      "note": "Mock backend; full React tests need the reviewed optional UI packages. The project scaffold has not been cloud-build verified.",
+      "liveAccountVerified": false,
+      "productionReady": false
+    },
+    {
+      "path": "examples/basic-contact-card-serverless",
+      "status": "illustrative",
+      "localCheck": null,
+      "note": "Handler/card pattern only. Do not treat it as a complete deployable project or install its unpinned packages as a verified setup.",
+      "liveAccountVerified": false,
+      "productionReady": false
+    }
+  ]
+}

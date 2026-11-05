@@ -4,7 +4,7 @@
   "private": true,
   "description": "HubSpot contact card example backed by an agent-tool-style endpoint.",
   "scripts": {
-    "start": "node server.js",
+    "start": "node --env-file=.env server.js",
     "check": "node --check server.js"
   },
   "engines": {

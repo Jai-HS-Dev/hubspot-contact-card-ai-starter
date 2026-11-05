@@ -1,0 +1,21 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '../examples/contact-card-with-agent-tool');
+test('card scaffold uses the reviewed project, app and card fields', () => {
+  const project = JSON.parse(fs.readFileSync(path.join(root, 'hsproject.json')));
+  assert.equal(project.platformVersion, '2026.09');
+  assert.equal(project.srcDir, './src');
+  const app = JSON.parse(fs.readFileSync(path.join(root, 'src/app/app-hsmeta.json')));
+  assert.equal(app.type, 'app');
+  assert.equal(app.config.distribution, 'private');
+  assert.deepEqual(app.config.auth.requiredScopes, ['oauth', 'crm.objects.contacts.read']);
+  assert.deepEqual(Object.keys(app.config.permittedUrls).sort(), ['fetch', 'iframe', 'img']);
+  const card = JSON.parse(fs.readFileSync(path.join(root, 'src/app/cards/contact-brief-card-hsmeta.json')));
+  assert.equal(card.type, 'card');
+  assert.deepEqual(card.config.objectTypes, ['CONTACT']);
+  assert.ok(fs.existsSync(path.join(root, 'src', card.config.entrypoint)));
+  const actions = path.join(root, 'src/app/workflow-actions');
+  assert.ok(!fs.existsSync(actions) || !fs.readdirSync(actions).some(file => file.endsWith('-hsmeta.json')));
+});

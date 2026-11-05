@@ -2,6 +2,11 @@
 
 Plan and build HubSpot CRM contact app cards with help from any AI coding tool.
 
+**Guided starter, not a finished production integration.**
+
+**Your first result:** Run a mock card backend, understand the example's UI states, and write a small plan for a card inside a contact record. The mock card backend returns a sample brief. This first check does not display or install a card inside HubSpot.
+
+
 This starter is for three kinds of users:
 
 - Non-developers who want an AI assistant to guide them safely.
@@ -12,33 +17,23 @@ This repo is AI-tool-neutral and hosting-neutral. It can be used with Codex, Cur
 
 ## Quick Start
 
-If you are using an AI coding tool, start here:
+Follow [your first working result](docs/start-here.md): describe your goal, run the
+credential-free mock, choose auth/hosting only if needed, make one small change,
+and verify what is still unfinished. No account connection is needed to begin.
 
-```text
-Read START_WITH_AI.md first, then README.md, AGENTS.md, docs/start-here.md, docs/contact-card-blueprint.md, docs/non-developer-safety-gates.md, and docs/security-for-non-developers.md.
+Using an assistant? Open [START_WITH_AI.md](START_WITH_AI.md). It should ask one
+plain-language question at a time. The walkthrough includes Windows commands,
+expected output, stop instructions and [safe recovery](docs/troubleshooting.md).
 
-Ask me one question at a time. Start with mock card data. Do not ask me to paste secrets, access tokens, refresh tokens, client secrets, portal IDs, private URLs, or customer data into chat.
-
-Help me build a real HubSpot contact card safely.
-```
-
-Then run the local checks:
-
-```bash
-npm run check:ai
-npm run smoke:example
-npm run doctor
-```
-
-On Windows PowerShell, if `npm` is blocked by script policy, use:
-
-```powershell
-npm.cmd run check:ai
-npm.cmd run smoke:example
-npm.cmd run doctor
-```
+Experienced developers can jump to [architecture](docs/developer-architecture.md)
+and [the contract](docs/contracts/contact-card-data-contract.md); the same evidence and safety limits apply.
 
 ## Current HubSpot Baseline
+
+Read [EVIDENCE.md](EVIDENCE.md) for exactly what is implemented, tested locally,
+and still needs developer-account or production verification. Run `npm test`
+after setup as well as the smoke check; the two checks cover different behavior.
+For behavior changes in existing copies, read [UPGRADE_NOTES.md](UPGRADE_NOTES.md).
 
 This starter targets Developer Platform `2026.09`, date-based CRM API `2026-09`, and Node.js 22+. Read `COMPATIBILITY.md` before choosing auth or optional Fall 2026 features, and use `MIGRATION.md` when updating older code. App Actions are an optional public-beta surface; keep the normal record card workflow available as a fallback.
 
@@ -51,64 +46,22 @@ the distinction between project functions, workflow actions, and external hosts.
 
 ## Pick Your Path
 
-### I Am A Non-Developer
+| You want | Start here |
+| --- | --- |
+| A first result without coding experience | [One guided walkthrough](docs/start-here.md) |
+| A small feature to adapt with AI | The same walkthrough, then [recipes](recipes/README.md) |
+| Contracts and implementation details | [Architecture](docs/developer-architecture.md) and [contracts](docs/contracts/contact-card-data-contract.md) |
 
-Start with these files:
-
-- `START_WITH_AI.md`: paste this into your AI tool.
-- `docs/contact-card-blueprint.md`: helps describe the card before coding.
-- `docs/non-developer-safety-gates.md`: plain-English safety steps.
-- `docs/security-for-non-developers.md`: what never to paste into chat.
-- `REAL_TOOL_CHECKLIST.md`: tells you when the card is becoming a real usable tool.
-
-Your safest path is mock UI states first, then choose whether the card needs HubSpot serverless functions, an external endpoint, or OAuth.
-
-### I Am Vibe Coding
-
-Start with:
-
-- `recipes/contact-health-card/`
-- `recipes/next-best-action-card/`
-- `recipes/setup-required-card/`
-- `.github/prompts/build-my-first-hubspot-feature.prompt.md`
-- `.github/prompts/turn-mock-into-real-hubspot-api.prompt.md`
-
-Ask your AI tool to build all UI states before connecting real CRM data.
-
-### I Am A Developer
-
-Start with:
-
-- `docs/developer-architecture.md`
-- `docs/contracts/contact-card-data-contract.md`
-- `examples/basic-contact-card-serverless/`
-- `examples/contact-card-with-agent-tool/`
-- `scripts/ai-readiness-check.js`
-- `scripts/smoke-example.js`
-
-The included examples show both a HubSpot-serverless-style pattern and a backend-endpoint pattern.
+[Choose your scope](docs/choose-your-path.md) before combining repositories. One
+starter may be enough; companions are optional, not an installation bundle.
 
 ## If You Are An AI Coding Tool
 
-Read these first, in order:
-
-1. `AGENTS.md`
-2. `START_WITH_AI.md`
-3. `docs/contact-card-blueprint.md`
-4. `docs/non-developer-safety-gates.md`
-5. `docs/security-for-non-developers.md`
-6. `docs/contracts/contact-card-data-contract.md`
-7. The relevant `recipes/*/README.md`
-
-Rules:
-
-- Ask one question at a time for non-technical users.
-- Start with mock data and all expected UI states.
-- Do not ask for secrets in chat.
-- Keep tokens, client secrets, and external API keys out of browser components.
-- Do not hard-code real portal IDs, app IDs, account IDs, private URLs, tokens, or customer data.
-- Explain the server boundary before connecting real HubSpot data.
-- Run `npm run check:ai` and `npm run smoke:example` after meaningful changes.
+[AGENTS.md](AGENTS.md) is the canonical operating guidance.
+[START_WITH_AI.md](START_WITH_AI.md) starts the conversation; README.md explains
+scope; [docs/start-here.md](docs/start-here.md) is the beginner path.
+Read the selected example, [catalog](examples/catalog.json) and [evidence](EVIDENCE.md)
+before claiming anything is implemented. Tool-specific adapters delegate to AGENTS.md.
 
 ## What This Repo Is
 
@@ -131,7 +84,10 @@ examples/basic-contact-card-serverless/
 examples/contact-card-with-agent-tool/
 ```
 
-Use the serverless example when the card can stay mostly inside the HubSpot project model. Use the agent-tool example when the card should reuse a backend endpoint that can also power HubSpot agent tools or workflows.
+The basic serverless example is illustrative, not a complete deployable project.
+The Contact Brief example includes a full app/card source scaffold and a protected
+card backend. Reusing its business logic for workflows/tools requires a separate
+reviewed caller adapter; that workflow metadata is only a reference.
 
 Both examples use generic placeholders and mock data first. Replace placeholders only after the user has chosen an auth model and hosting provider.
 
@@ -145,19 +101,33 @@ A contact card can show useful information or actions inside a HubSpot CRM conta
 - display CRM-derived status
 - link to a setup or auth flow
 
+## Example Labels
+
+[examples/catalog.json](examples/catalog.json) lists every example and its limits.
+**Runnable locally** means the stated mock/offline check runs after its documented
+setup. **Illustrative** means a pattern or scaffold, not a complete runnable or
+deployable integration. **Developer-account verified** requires recorded installed
+evidence; none of these examples currently claims it. **Production prerequisites**
+are work to review, not a certification or an included production service.
+
+| Example | Status | What the local evidence covers |
+| --- | --- | --- |
+| [examples/contact-card-with-agent-tool](examples/contact-card-with-agent-tool/README.md) | Runnable locally | Mock backend; full React tests need the reviewed optional UI packages. The project scaffold has not been cloud-build verified. |
+| [examples/basic-contact-card-serverless](examples/basic-contact-card-serverless/README.md) | Illustrative | Handler/card pattern only. Do not treat it as a complete deployable project or install its unpinned packages as a verified setup. |
+
+Use [EVIDENCE.md](EVIDENCE.md) for the current verification record. Every example's
+README also states its status and points to the remaining live-use checklist.
+
 ## Security First
 
 Never expose tokens or secrets in browser-visible card code. Keep sensitive CRM queries, external API calls, OAuth token handling, and private app tokens server-side.
 
-## Real Card Workflow
+## From Demo To Your Feature
 
-1. Start with `START_WITH_AI.md`.
-2. Fill out `docs/contact-card-blueprint.md`.
-3. Choose a recipe.
-4. Build loading, success, no-data, needs-setup, and error states with mock data.
-5. Choose auth and hosting using `docs/auth-options.md` and `docs/hosting-options.md`.
-6. Run `npm run check:ai` and `npm run smoke:example`.
-7. Review `REAL_TOOL_CHECKLIST.md` before real CRM data.
+Keep the [single guided path](docs/start-here.md): goal, mock, auth/hosting decision,
+one small build, verification. You may stop at mock-only learning. Before real use,
+finish [the checklist](REAL_TOOL_CHECKLIST.md) and obtain scoped approval; successful
+mock tests are not a deployment or permission to touch live data.
 
 ## Repo Map
 
@@ -176,6 +146,6 @@ Never expose tokens or secrets in browser-visible card code. Keep sensitive CRM 
 
 This starter is released under the MIT license in `LICENSE`. That makes it permissive for learning, copying, modifying, publishing, distributing, sublicensing, and building real projects, as long as the required copyright and license notices are preserved when substantial portions are reused.
 
-The starter is provided as-is, without warranty or liability. It is not legal advice, a security audit, a compliance review, HubSpot approval, marketplace approval, or a production guarantee.
+The MIT license includes the warranty disclaimers and liability limitations in [LICENSE](LICENSE). This starter is not legal advice, a security audit, a compliance review, HubSpot approval, marketplace approval, or a production guarantee. Builders are responsible for reviewing, configuring, testing, and operating their implementations.
 
 Before using generated code with real HubSpot data or real users, review `docs/implementation-responsibility.md`, `REAL_TOOL_CHECKLIST.md`, and `docs/non-developer-safety-gates.md`. Builders are responsible for checking their own HubSpot developer requirements, auth model, scopes, hosting setup, token storage, privacy obligations, platform terms, and production readiness.
