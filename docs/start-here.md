@@ -120,7 +120,17 @@ npm run check
 npm test
 ```
 
-Use npm.cmd in Windows PowerShell. Full React tests need the reviewed, approved UI lockfile installation in [the card example](../examples/contact-card-with-agent-tool/README.md); it is optional for the first backend smoke check.
+Use npm.cmd in Windows PowerShell. The first smoke and `npm run test:core`
+need no third-party packages. For the full React suite, review and approve the
+existing UI lockfile, then run from the repository root:
+
+```bash
+npm ci --prefix examples/contact-card-with-agent-tool/src/app/cards --ignore-scripts --no-audit --no-fund
+npm test
+```
+
+There is no root lockfile to install. Do not use npm ci at the root or install
+packages automatically to clear an error. See [the card example](../examples/contact-card-with-agent-tool/README.md).
 Report failures and skipped tests honestly; a skip is not passed coverage.
 
 ### Starter Walkthrough Complete

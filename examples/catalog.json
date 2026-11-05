@@ -14,7 +14,7 @@
       "path": "examples/basic-contact-card-serverless",
       "status": "illustrative",
       "localCheck": null,
-      "note": "Handler/card pattern only. Do not treat it as a complete deployable project or install its unpinned packages as a verified setup.",
+      "note": "Handler/card pattern only. No installable package is supplied; use the reviewed Contact Brief example for UI setup.",
       "liveAccountVerified": false,
       "productionReady": false
     }

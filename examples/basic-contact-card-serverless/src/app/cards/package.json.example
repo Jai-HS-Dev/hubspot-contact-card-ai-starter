@@ -1,0 +1,5 @@
+{
+  "name": "illustrative-card-metadata-only",
+  "private": true,
+  "description": "Not an installable project. Use the reviewed Contact Brief package and lockfile for runnable UI tests."
+}

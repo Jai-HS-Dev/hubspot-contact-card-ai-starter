@@ -32,6 +32,11 @@ Review third-party packages before installation. Pins are @hubspot/ui-extensions
 1.0.1 and its required React 18.3.1; no install hooks are needed. The suite uses the
 SDK's real React renderer for setup/loading/success/empty/error/refresh states,
 and synthetic signatures/API responses for backend tests. It never calls HubSpot.
+
+Without UI packages, `npm run test:core` from the repository root runs backend,
+metadata and guidance tests. `npm test` still means the full suite; missing UI
+dependencies produce instructions, not silent skips. `npm run test:ui` runs only
+the renderer scenarios after the same setup.
 The UI view uses React.createElement so tests need no extra JSX compiler package.
 
 ## Files

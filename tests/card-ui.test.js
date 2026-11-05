@@ -27,6 +27,7 @@ test('actual React view renders with the HubSpot SDK test renderer', async t => 
     assert.equal(r.find(Button).props.disabled, true);
     resolve(Response.json({ hs_execution_state: 'SUCCESS', outputFields: { brief: 'Synthetic contact', nextStep: 'Review', status: 'sample' } }));
     await r.waitFor(() => assert.match(text(r), /Synthetic contact/));
+    assert.ok(text(r).includes('Status: sample'));
     r.find(Button).props.onClick();
     await r.waitFor(() => assert.equal(calls, 2));
     resolve(Response.json({ hs_execution_state: 'SUCCESS', outputFields: { brief: '', nextStep: '', status: 'empty' } }));

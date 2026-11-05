@@ -1,5 +1,25 @@
 # Evidence And Support
 
+## Starter Follow-Through Verification
+
+Checked 2026-11-05 on Windows with Node.js 24.22.1:
+
+- Full local suite: 29 passed, none skipped in the final run.
+- Readiness, source syntax and documented first-demo checks passed.
+- Fresh source snapshots excluded Git metadata, filled environment files and node_modules.
+- In the fresh card copy, core checks passed without packages; full tests stopped
+  with the expected setup instructions, then passed after the reviewed locked install.
+- The existing UI dependency lockfile was audited against npm's advisory service:
+  no reported vulnerabilities at that check. This is not a security certification.
+- The worked exercise's changed expectation failed, then its documented matching
+  change passed in an isolated copy. This was a self-run command walkthrough.
+- Independent beginner/AI-client testing, Node.js 22 and Linux execution, GitHub CI runs, cloud builds and installed
+  HubSpot behavior are not established by these checks.
+
+The CI matrix is intended coverage, not a recorded remote result. GitHub settings
+and publishing remain separate approvals. No live accounts were connected,
+customer records accessed, apps uploaded or services deployed during this update.
+
 Reviewed 2026-11-04. Evidence is specific to each example, not certification of
 apps generated from it. A successful HTTP response or AI answer is not a security
 review or proof of installation.
@@ -25,8 +45,9 @@ review or proof of installation.
 6. Record the actual build, installed behavior and unresolved limitations before
    claiming account verification. Request separate approval for production.
 
-No automated command here uploads or deploys the app. Existing CI configuration
-was not changed in this update. Report security problems using SECURITY.md; do not
+No automated command here uploads or deploys the app. The test-only CI source
+now includes the full suite and a Windows/Linux, Node.js 22/24 matrix; a workflow
+file alone does not prove a successful GitHub run. Report security problems using SECURITY.md; do not
 post credentials or customer data in public issues. Support is best-effort, as
 stated in SUPPORT.md. MIT terms are in LICENSE, not a guarantee of legal immunity.
 

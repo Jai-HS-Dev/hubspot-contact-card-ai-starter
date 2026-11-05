@@ -88,6 +88,10 @@ Do not weaken security settings or enter live credentials to make it pass.
 
 ## Connect To HubSpot When You're Ready
 
+For package-free backend tests, run `npm run test:core`. Full UI tests need the
+reviewed nested lockfile install described in [the worked exercise](docs/worked-example.md);
+`npm test` stops with setup instructions when those packages are missing.
+
 The mock needs no account connection. Installing a card/tool or working with real
 HubSpot data does need a suitable account, permissions and authentication.
 Use [the connection guide](docs/connect-to-hubspot.md) to choose or create a
@@ -100,7 +104,7 @@ approval before setup or connection. Test first; production is a separate decisi
 | Example | Status and limits |
 | --- | --- |
 | [Contact Brief card](examples/contact-card-with-agent-tool/README.md) | Runnable locally: mock backend, plus app/card source. Full React tests require the documented optional UI package setup. Cloud build and installation are unverified. |
-| [Basic serverless card](examples/basic-contact-card-serverless/README.md) | Illustrative pattern only, not a complete deployable project or a verified package-install path. |
+| [Basic serverless card](examples/basic-contact-card-serverless/README.md) | Illustrative pattern only; no installable package or complete deployable project. |
 
 A real card still needs a verified build/install, server-side caller/account/user/record authorization and developer-account tests. Reusing its logic as a workflow or agent tool needs a separate caller adapter.
 
@@ -130,6 +134,9 @@ Read [plain-English security guidance](docs/security-for-non-developers.md) and
 [the approval gates](docs/non-developer-safety-gates.md) for the full process.
 
 ## Developer Reference
+
+For a small next step, try [the worked exercise](docs/worked-example.md).
+New terms are explained in [the glossary](docs/glossary.md).
 
 - [Architecture](docs/developer-architecture.md) and [contract](docs/contracts/contact-card-data-contract.md).
 - [Compatibility and reviewed versions](COMPATIBILITY.md), [migration guidance](MIGRATION.md) and [upgrade notes](UPGRADE_NOTES.md).

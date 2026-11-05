@@ -5,7 +5,8 @@
 **Developer-account verification:** Not verified.
 **Production prerequisites:** Review [the checklist](../../REAL_TOOL_CHECKLIST.md) and [evidence](../../EVIDENCE.md); no production implementation is included.
 
-Handler/card pattern only. Do not treat it as a complete deployable project or install its unpinned packages as a verified setup.
+Handler/card pattern only. No installable package is supplied; use the reviewed
+[Contact Brief example](../contact-card-with-agent-tool/README.md) for UI setup.
 
 
 This example shows a simple HubSpot contact card pattern:
@@ -31,7 +32,7 @@ because this example's documentation was updated.
 - `src/app/cards/ContactHealthCard.jsx`: example UI extension card.
 - `src/app/cards/contact-health-card-hsmeta.json`: card metadata.
 - `src/app/functions/contact-health.js`: serverless-function-style handler.
-- `src/app/cards/package.json`: minimal card package metadata.
+- `src/app/cards/package.json.example`: illustrative metadata only, not an install command.
 
 ## AI Prompt
 
