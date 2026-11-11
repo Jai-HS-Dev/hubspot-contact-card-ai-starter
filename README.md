@@ -1,16 +1,14 @@
 # HubSpot Contact Card AI Starter
 
-Build a small panel for a HubSpot contact that shows a short brief and a suggested next step.
+Build a follow-up checklist for a HubSpot contact record. The first example needs no separate backend.
 
 > [!NOTE]
 > **A guided starter, not a production integration.** You can practice without
 > a HubSpot account or credentials. To test inside HubSpot, use a developer
 > test account with made-up records.
 
-![Local sample card showing a contact brief, a suggested next step, and Status: sample](docs/img/sample-card-preview.png)
-
-*Example layout with made-up data, not a card installed in HubSpot. Run the
-local preview below to see the current follow-up brief.*
+**Sample result:** A three-step follow-up checklist with made-up content. The
+same checklist can later be installed on a contact record in a developer test account.
 
 ## Pick Your Path
 
@@ -24,8 +22,9 @@ Copy this into your AI chat. Add your goal in plain English if you already have 
 
 ```text
 Help me use this HubSpot learning starter: https://github.com/Jai-HS-Dev/hubspot-contact-card-ai-starter
-Read START_WITH_AI.md and AGENTS.md. If you can't open them, tell me how to share the public starter files.
-Ask what I want to do, then guide me through one local example with made-up data.
+Read START_WITH_AI.md and AGENTS.md from the same version as my copy.
+If you can't open them, ask for those public files. Ask what I want to build,
+then guide me through the first local example with made-up data.
 Don't ask for secrets, connect an account, or deploy anything. This is a prototype, not a production integration.
 ```
 
@@ -33,18 +32,20 @@ Don't ask for secrets, connect an account, or deploy anything. This is a prototy
 
 Install [Node.js 22 or newer](https://nodejs.org/en/download) if you don't have it.
 On GitHub, choose **Code > Download ZIP**, extract it, and open a terminal in
-the folder with this README. No project packages need to be installed for this step.
+the folder with this README. For a versioned copy, use a learning-starter ZIP
+from [Releases](https://github.com/Jai-HS-Dev/hubspot-contact-card-ai-starter/releases) and share its matching AI prompt.
+No project packages need to be installed for this step.
 
 ```bash
 npm run doctor
-npm run smoke:example
+npm run build:example
 ```
 
 In Windows PowerShell, use `npm.cmd` instead of `npm`.
 
-**Success looks like:** `card smoke example passed.`
+**Success looks like:** `Sample follow-up checklist` followed by three numbered items.
 
-To see it as a page, run `npm run preview` and open the file it names.
+For the separate Contact Brief mock, run `npm run preview` to see its local HTML sketch.
 
 ## Make It Yours
 

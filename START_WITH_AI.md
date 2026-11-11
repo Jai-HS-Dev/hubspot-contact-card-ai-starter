@@ -9,8 +9,11 @@ credentials, an MCP connection or a hosting account for the first exercise.
 | Read project folders | Download the public repository ZIP, extract it, and open that folder in your coding tool. Then paste the prompt. |
 | Only read chat or attachments | Share the public `README.md`, `START_WITH_AI.md` and `AGENTS.md`. Share the public walkthrough if asked. Never attach a private project, `.env` file or CRM export. |
 
-If the assistant cannot run commands, it can still guide you. Run the local
-steps yourself and share only the success line or a sanitized error.
+Use the same version for your download and the files your assistant reads. If
+you downloaded a release ZIP, share its link to this prompt or use the public
+files from your extracted folder. Don't silently switch to the default branch.
+If the assistant cannot run commands, run them yourself and share only the
+success line or a sanitized error.
 
 ```text
 Help me use the HubSpot Contact Card AI Starter. This is a guided starter, not a production integration.
@@ -21,7 +24,9 @@ say which file you need. Don't guess at repository commands or claim you ran the
 
 Start by asking me: "What should someone see or do on the contact card?"
 If I don't have an idea yet, offer the supplied example. Explain terms as needed.
-Use the local walkthrough with made-up data. Explain the command, where to run it,
+Use the first build-along in the local walkthrough. State my goal, the expected
+result, and what needs separate approval before any HubSpot or hosting step.
+Explain the command, where to run it,
 and the line or screen that means it worked. If I can't run it yet, help me plan
 from the example and mark the result as not run.
 
@@ -40,14 +45,14 @@ touch live data. Finish with what actually ran, what is still unverified, and
 one next decision.
 ```
 
-**Try saying:** "Show a brief and one suggested next step on a made-up contact."
+**Try saying:** "Show a checklist that reminds me what to confirm before I follow up."
 
-**First finish line:** Run `npm run smoke:example` using [the walkthrough](docs/start-here.md).
-Show the local card preview and explain how to recognize sample, empty and error states. The preview is not a card installed in HubSpot.
+**First finish line:** Run `npm run build:example` using [the walkthrough](docs/start-here.md).
+Look for `Sample follow-up checklist`. See the checklist in the terminal, change one item, and see the new wording. It has not been installed in HubSpot.
 
-**A later decision:** For an approved test-account trial, use `docs/first-live-test.md`. Do not deploy the mock backend or use real CRM records for the exercise.
+**A later decision:** [Try the same checklist in a developer test account](examples/follow-up-checklist-card/README.md#2-see-it-on-a-hubspot-record) only after approving the app install, Contacts read permission, and test view.
 
-**Build something:** [Build the backend-free checklist](examples/follow-up-checklist-card/README.md) to try a card inside HubSpot after the local result.
+**Optional:** [Try the separate Contact Brief backend mock](docs/worked-example.md) if you want dynamic data.
 
 Report actual results separately from instructions or plans. See
 [what was tested](docs/EVIDENCE.md) for this starter's verification limits.

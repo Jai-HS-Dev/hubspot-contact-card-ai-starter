@@ -65,13 +65,19 @@ test('AI entry points agree and client adapters delegate', () => {
 });
 test('the documented first-run success matches the actual credential-free command', () => {
   const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => /^(path|systemroot|windir|comspec|pathext|temp|tmp|systemdrive)$/i.test(key)));
-  const guide = read('docs/start-here.md');
   const doctor = spawnSync(process.execPath, ['scripts/doctor.js'], { cwd: root, env, encoding: 'utf8', timeout: 15000 });
   assert.equal(doctor.status, 0);
   assert.equal(JSON.parse(doctor.stdout).ok, true);
-  const run = spawnSync(process.execPath, ['scripts/smoke-example.js'], { cwd: root, env, encoding: 'utf8', timeout: 15000 });
+  const args = ['examples/follow-up-checklist-card/preview.mjs'];
+  assert.equal(JSON.parse(read('package.json')).scripts['build:example'], ['node', ...args].join(' '));
+  const run = spawnSync(process.execPath, args, { cwd: root, env, encoding: 'utf8', timeout: 15000 });
   assert.equal(run.status, 0, run.stderr);
-  const expected = "card smoke example passed.";
-  assert.ok(guide.includes(expected));
-  assert.ok(run.stdout.includes(expected));
+  const expected = "Sample follow-up checklist";
+  for (const file of ['README.md', 'START_WITH_AI.md', 'docs/start-here.md']) {
+    const content = read(file);
+    assert.ok(content.includes('npm run build:example') && content.includes(expected), file);
+  }
+  assert.match(read('.github/workflows/ai-starter-checks.yml'), /run: npm run build:example/);
+  assert.ok(run.stdout.includes("Sample follow-up checklist"), run.stdout);
+  assert.ok(run.stdout.includes("Agree on the next meeting date."), run.stdout);
 });
