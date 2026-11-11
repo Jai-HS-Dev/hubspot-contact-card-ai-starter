@@ -1,124 +1,66 @@
 # HubSpot Contact Card AI Starter
 
-Learn to build a card that shows useful information on a HubSpot contact record.
-You start with made-up data on your own computer, with an AI assistant that
-follows written safety rules.
+Build a small panel for a HubSpot contact that shows a short brief and a suggested next step.
 
-> [!WARNING]
-> **This is a learning starter, not finished software.** It is not
-> security-audited, not made or endorsed by HubSpot, and has no warranty or
-> support promise. Practice with made-up data or a free HubSpot developer test
-> account. You are responsible for what you build. See the [disclaimer](#disclaimer).
+> [!NOTE]
+> **A guided starter, not a production integration.** You can practice without
+> a HubSpot account or credentials. To test inside HubSpot, use a developer
+> test account with made-up records.
 
-## What You Get
+![Local sample card showing a contact brief, a suggested next step, and Status: sample](docs/img/sample-card-preview.png)
 
-- A small working example that returns a sample "contact brief" from made-up data.
-- Rules for your AI assistant ([AGENTS.md](AGENTS.md)): what it must never do, and
-  when it must ask you first.
-- A path from practice, to a test account, to a checklist before anything real.
-
-![Local preview of the sample card: a title, a Refresh button, a sample brief, a next step and a status, under a notice that the data is made up and this is not HubSpot](docs/img/sample-card-preview.png)
-
-This picture is the local preview page from `npm run preview`. It is a sketch
-with made-up data, not a screenshot of a card installed in HubSpot.
+*Local preview with made-up data, not a card installed in HubSpot.*
 
 ## Pick Your Path
 
-| You are | Start here | You will have |
-| --- | --- | --- |
-| New to coding | [Step-by-step walkthrough](docs/start-here.md) | The sample running on your computer and a plan for your own card |
-| Building with an AI assistant | [The first prompt to paste](START_WITH_AI.md) | An assistant that explains each step and asks before risky ones |
-| A developer | [Architecture](docs/developer-architecture.md), [data contract](docs/contracts/contact-card-data-contract.md), [example](examples/contact-card-with-agent-tool/README.md) | The code map, request and response shapes, and tests |
+- **New to coding:** [Follow the walkthrough](docs/start-here.md), including what to install and where to type commands.
+- **Building with AI:** Paste the message below into your assistant. The [full AI walkthrough](START_WITH_AI.md) explains what to do if it can't open the repo or run commands.
+- **Developer:** [Code map](docs/developer-architecture.md) | [Data contract](docs/contracts/contact-card-data-contract.md) | [Example files](examples/contact-card-with-agent-tool/README.md).
 
-A word you do not know? See the [glossary](docs/glossary.md).
+## Start With AI
 
-## Try It
+Copy this into your AI chat. Add your goal in plain English if you already have one.
 
-You need [Node.js](https://nodejs.org/en/download) 22 or newer and a terminal.
-You do **not** need a HubSpot account, a password or key, or any package install.
-
-1. On GitHub choose **Code > Download ZIP**, extract it, and open a terminal in
-   the folder that contains `README.md`.
-2. Run these two commands (in Windows PowerShell type `npm.cmd` instead of `npm`):
-
-   ```bash
-   npm run doctor
-   npm run smoke:example
-   ```
-
-3. You are done when the last line says `card smoke example passed.`
-4. Optional: run `npm run preview`, then open the file it names in your browser
-   to see the sample as a page.
-
-**What just happened:** a small program on your computer answered with a made-up
-contact brief and stopped itself. Nothing was sent to HubSpot and no card was
-installed. If a command fails, stop and read [troubleshooting](docs/troubleshooting.md).
-Never switch off a check or type in real credentials to make it pass.
-
-## What To Do Next
-
-1. **Change one small thing:** the [worked exercise](docs/worked-example.md).
-2. **Plan your own card:** the [blueprint](docs/contact-card-blueprint.md).
-3. **Understand accounts and sign-in choices:** the
-   [connection guide](docs/connect-to-hubspot.md). Your assistant must ask you
-   before it connects anything.
-4. **Try it in a free HubSpot developer test account:** the
-   [first test inside HubSpot](docs/first-live-test.md) checklist.
-5. **Before real customers or real data:** the
-   [live-use checklist](docs/REAL_TOOL_CHECKLIST.md). That is a separate decision.
-
-## How This Fits With HubSpot's Own Tools
-
-HubSpot's official tools create and upload real projects: see the
-[Build with AI quickstart](https://developers.hubspot.com/docs/build-with-ai/quickstart)
-and the [official project templates](https://github.com/HubSpot/hubspot-project-components).
-This starter covers what comes before and around them: practice with made-up
-data, rules for your AI assistant, and a checklist before going live. It does
-not replace the official tools or documentation.
-
-```mermaid
-flowchart LR
-  A["Card inside HubSpot<br/>never holds secrets"] -->|signed request| B["Your backend<br/>secrets stay here"]
-  B --> C{"Mock mode?"}
-  C -->|"yes (default)"| D["Made-up data"]
-  C -->|"no, only after you approve"| E["HubSpot API<br/>test account first"]
+```text
+Help me use this HubSpot learning starter: https://github.com/Jai-HS-Dev/hubspot-contact-card-ai-starter
+Read START_WITH_AI.md and AGENTS.md. If you can't open them, tell me how to share the public starter files.
+Ask what I want to do, then guide me through one local example with made-up data.
+Don't ask for secrets, connect an account, or deploy anything. This is a prototype, not a production integration.
 ```
 
-## Safety Rules In Short
+## Try It Locally
 
-1. Keep passwords, keys and customer data out of AI chats, GitHub, screenshots
-   and logs. Credentials belong on the server side, never in card code.
-2. Start with made-up data. Approve the exact account, access and action before
-   anything touches a real HubSpot account.
+Install [Node.js 22 or newer](https://nodejs.org/en/download) if you don't have it.
+On GitHub, choose **Code > Download ZIP**, extract it, and open a terminal in
+the folder with this README. No project packages need to be installed for this step.
 
-More: [security in plain English](docs/security-for-non-developers.md) and
-[the approval steps](docs/non-developer-safety-gates.md).
+```bash
+npm run doctor
+npm run smoke:example
+```
 
-## For Developers
+In Windows PowerShell, use `npm.cmd` instead of `npm`.
 
-Run `npm run check:ai`, `npm run check`, `npm run test:core` (no packages) and
-`npm test` (full suite; it stops with setup instructions if the optional UI
-packages are missing). [docs/EVIDENCE.md](docs/EVIDENCE.md) records what was and was not
-tested. Reference: [compatibility](docs/COMPATIBILITY.md),
-[authentication](docs/auth-options.md), [hosting](docs/hosting-options.md),
-[which starter you need](docs/choose-your-path.md), [migration notes](docs/MIGRATION.md)
-and [upgrade notes](docs/UPGRADE_NOTES.md).
+**Success looks like:** `card smoke example passed.`
 
-## Disclaimer
+To see it as a page, run `npm run preview` and open the file it names.
 
-- **No warranty.** Provided "as is" under the [MIT License](LICENSE), which
-  disclaims warranties and limits the authors' liability. Keep the copyright
-  and license notice when you reuse the code.
-- **A starter, not a product.** The examples are not production-ready, not
-  security-audited, and not verified in a live HubSpot account. A passing test
-  here does not prove that what you build is secure.
-- **You are responsible for what you build:** testing, security, privacy, legal
-  compliance, costs and your customers' data. See
-  [implementation responsibility](docs/implementation-responsibility.md).
-- **Independent project.** Not affiliated with, endorsed by or supported by
-  HubSpot. HubSpot is a trademark of HubSpot, Inc.
-- **Not professional advice.** Nothing here is legal, security or compliance
-  advice. HubSpot's platform changes, so check the current official documentation.
+## Make It Yours
 
-Help is best-effort with no response-time promise: see [support](docs/SUPPORT.md).
-Report security problems privately through [SECURITY.md](SECURITY.md).
+1. **Practice:** [Try the worked exercise](docs/worked-example.md). Change a label and check the card's sample, empty, and error states.
+2. **Verify in HubSpot when ready:** [Try the card on one test contact](docs/first-live-test.md) in a HubSpot developer test account. The local preview does not install the card or verify request signing.
+3. **Before real use:** Review the [live-use checklist](docs/REAL_TOOL_CHECKLIST.md). Approve the account, permissions, and action first. Never paste secrets into chat or commit them.
+
+Use this starter for something a person should see on a CRM record. For a tool an agent calls without a card, [pick the agent-tools starter](docs/choose-your-path.md). Use [HubSpot's project templates](https://github.com/HubSpot/hubspot-project-components) for the app scaffold and [HubSpot's card examples](https://github.com/hubspotdev/ui-extensions-examples) for interface ideas.
+
+No specific AI editor or hosting provider is required. For account and authentication choices, see the [connection guide](docs/connect-to-hubspot.md). [AGENTS.md](AGENTS.md) gives assistants instructions; it does not control their permissions.
+
+## Tests And Help
+
+`npm run test:core` works without packages. The [example setup](examples/contact-card-with-agent-tool/README.md) explains how to run the full UI suite after reviewing and approving its dependencies. See [what was tested](docs/EVIDENCE.md), [troubleshooting](docs/troubleshooting.md), and the [plain-language glossary](docs/glossary.md). [Support](docs/SUPPORT.md) is best-effort. Use the [security policy](SECURITY.md) to report security issues without exposing private data.
+
+## License And Responsibility
+
+[MIT License](LICENSE). This independent project is not endorsed by HubSpot.
+The examples are not security-audited and are provided as is, without warranty. You are responsible for
+[validating, securing, and operating what you build](docs/implementation-responsibility.md).

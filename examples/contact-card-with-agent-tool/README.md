@@ -52,6 +52,11 @@ The UI view uses React.createElement so tests need no extra JSX compiler package
 
 ## Configure A Developer-Account Trial
 
+For a first card trial with made-up data only, start with the
+[local proxy walkthrough](../../docs/first-live-test.md). The options below
+describe adapting this illustrative scaffold for a separately approved backend
+and live read. A public host is not required for the local proxy trial.
+
 Do this only after approval for the exact app/account and synthetic record.
 
 1. Preserve existing app UIDs/auth for a real migration. For a new learning app,
