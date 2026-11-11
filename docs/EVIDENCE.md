@@ -1,5 +1,48 @@
 # Evidence And Support
 
+## Developer Test Account Build And Install
+
+On 2026-11-11, the HubSpot CLI scaffolded an isolated private static-auth
+project on platform 2026.09. The pilot used the starter's card view, the
+existing locked UI dependencies, and an example URL for the local proxy.
+The CLI validator, HubSpot build, test-account deploy, and first app
+installation succeeded. No CRM read/write scopes or public backend were
+configured. HubSpot automatically added its required `oauth` scope group.
+
+In the follow-up trial, the app card appeared on a synthetic contact after
+Contacts read and view placement were configured. The browser blocked local
+network access, so that observation confirms placement, not delivery of the
+mock brief. Live signing and record authorization remain unverified. This was
+the backend-connected pilot, not an account test of the new checklist example.
+
+## Follow-Up Brief Pilot
+
+Checked 2026-11-11 on Windows with Node.js 24.22.1. The local preview shows
+a fixed sample lifecycle stage and a follow-up suggestion. The backend test
+requests two synthetic IDs, checks each returned brief against the requested
+ID, and confirms that mock mode makes no CRM calls.
+
+- Readiness, syntax, doctor, smoke, and preview commands passed. Core tests:
+  28 passed, none skipped. Signed-request tests used synthetic caller metadata.
+- The optional SDK UI suite was not run; its dependencies were not installed.
+- The developer-account walkthrough is prepared, not verified. No app was
+  uploaded or installed for this check. Actual HubSpot signing, user/record
+  authorization, and production readiness remain unverified.
+
+## README And Preview Update Verification
+
+Checked 2026-11-10 on Linux with Node.js 22.23.4 and 24.22.2, in an automated run by an AI
+coding assistant. This is not an independent beginner test.
+
+- `npm run check:ai`, `npm run check`, `npm run doctor`, `npm run smoke:example`,
+  `npm run test:core` and the full `npm test` (after the locked UI install) passed.
+- `npm run preview` wrote the local page; docs/img/sample-card-preview.png is a
+  capture of that page. It shows made-up data and is not the HubSpot UI.
+- Every relative link in the Markdown files was checked to resolve to a file.
+- Not established: how the README renders on GitHub, the dev container in
+  GitHub Codespaces, and every step of docs/first-live-test.md. No HubSpot
+  account was connected and nothing was uploaded.
+
 ## Starter Follow-Through Verification
 
 Checked 2026-11-05 on Windows with Node.js 24.22.1:
@@ -53,7 +96,7 @@ stated in SUPPORT.md. MIT terms are in LICENSE, not a guarantee of legal immunit
 
 ## Example Label Contract
 
-[examples/catalog.json](examples/catalog.json) is the machine-readable index; each
+[examples/catalog.json](../examples/catalog.json) is the machine-readable index; each
 example README repeats its label next to the code.
 
 - **Runnable locally:** the named mock/offline check runs after documented setup.
@@ -66,4 +109,4 @@ example README repeats its label next to the code.
   production hosting, security certification or ongoing operation.
 
 The beginner finish line is the local demo plus a small plan. See
-[the walkthrough](docs/start-here.md) for success, recovery and what remains.
+[the walkthrough](start-here.md) for success, recovery and what remains.

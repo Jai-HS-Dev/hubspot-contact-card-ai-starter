@@ -3,6 +3,14 @@
   "reviewedOn": "2026-11-04",
   "examples": [
     {
+      "path": "examples/follow-up-checklist-card",
+      "status": "runnable-locally",
+      "localCheck": "build:example",
+      "note": "Backend-free card scaffold and local preview of the shared checklist.",
+      "liveAccountVerified": false,
+      "productionReady": false
+    },
+    {
       "path": "examples/contact-card-with-agent-tool",
       "status": "runnable-locally",
       "localCheck": "smoke:example",

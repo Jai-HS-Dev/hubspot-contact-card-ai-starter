@@ -25,7 +25,7 @@ Use this checklist when reviewing changes to this public starter.
 ## Community Health
 
 - README still has clear paths for non-developers, vibe coders, developers, and AI coding tools.
-- `LICENSE`, `SECURITY.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SUPPORT.md` are present.
+- `LICENSE`, `SECURITY.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `docs/SUPPORT.md` are present.
 - Issue templates and the pull request template warn users not to share secrets or customer data.
 
 ## AI Readiness
@@ -84,3 +84,20 @@ production prerequisite with new code merely to claim the checklist is complete.
 Record these as a manual instruction review unless an actual independent tool/user
 test was performed. Do not claim that all AI clients were tested or that prompts
 enforce isolation. Record the command/output checks separately from usability claims.
+
+### First-Time Reader Pilot
+
+Give a consenting non-developer and a vibe coder only the public README link.
+Use a clean copy with no credentials, no customer data, and no HubSpot access.
+
+- Ask the non-developer to identify what the card does, run the local example,
+  and show the preview. Note where they need help, especially Node setup and
+  finding the right folder.
+- Ask the vibe coder to use the starter prompt and make one label change. Check
+  that the assistant explains what will run and asks before any package install.
+  Do not grant account access or permit deployment during the pilot.
+- Ask a developer to find the data contract, core tests and installed-test
+  requirements without following the beginner tutorial.
+- Ask each reader to explain what the local result proves and what it does not.
+  Record the tool/runtime version, result and confusing step, not people's names
+  or screenshots of private data. Keep pilot results separate from account tests.

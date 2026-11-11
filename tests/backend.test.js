@@ -69,3 +69,33 @@ test('live mode fails closed when configuration is absent', () => {
   assert.throws(() => createServer({ env: { USE_MOCK_DATA: 'false' } }), /Live mode requires/);
   assert.throws(() => createServer({ env: { USE_MOCK_DATA: 'FALSE' } }), /must be true or false/);
 });
+
+test('sample brief follows the requested contact and never reads CRM', async t => {
+  let upstreamCalls = 0;
+  const server = createServer({ env: {}, fetchImpl: async () => {
+    upstreamCalls++;
+    throw new Error('Mock mode must not call upstream');
+  } });
+  server.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  t.after(() => new Promise(resolve => { server.closeAllConnections(); server.close(resolve); }));
+  const url = 'http://127.0.0.1:' + server.address().port + '/api/contact-brief';
+
+  for (const contactId of ['sample-1', 'sample-2']) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ inputFields: { contactId } })
+    });
+    assert.equal(response.status, 200);
+    assert.deepEqual(await response.json(), {
+      hs_execution_state: 'SUCCESS',
+      outputFields: {
+        brief: `Sample contact brief for ${contactId}. Lifecycle stage: Lead (sample).`,
+        nextStep: 'Confirm what the lead needs before following up.',
+        status: 'sample'
+      }
+    });
+  }
+  assert.equal(upstreamCalls, 0);
+});

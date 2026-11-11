@@ -1,5 +1,24 @@
 # Local Upgrade Notes
 
+## Unreleased - Easier README, Assistant Hard Rules And Local Preview
+
+Prepared 2026-11-10. Documentation and learning aids only; no example behavior,
+CI or security setting changed. No app was uploaded or deployed by this update.
+
+- README rewritten for three audiences: one status banner, a path table, a short
+  quick start, numbered next steps and a single disclaimer section.
+- AGENTS.md starts with a short Never / Ask first / Always block, and tells the
+  assistant when HubSpot's official developer tools may be used.
+- `npm run preview` writes a local HTML sketch of the sample card from the mock
+  response into the ignored `preview/` folder. It is not the HubSpot UI.
+- docs/first-live-test.md is a checklist for a first developer-test-account trial.
+  It has not been run end to end; see EVIDENCE.md.
+- A dev container definition is included for browser-based editors. It has not
+  been verified in GitHub Codespaces.
+- Reference documents moved from the repository root into docs/: EVIDENCE, COMPATIBILITY, MIGRATION, UPGRADE_NOTES, ROADMAP, SUPPORT and REAL_TOOL_CHECKLIST.
+  Links, AI instructions, checks and tests were updated to the new locations. If you
+  keep your own links or scripts to the old locations, update them.
+
 ## v0.2.0 - Guided Starter Release
 
 This release adds a single beginner walkthrough, example/evidence labels, aligned

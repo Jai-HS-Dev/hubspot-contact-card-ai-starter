@@ -73,10 +73,11 @@ Verify the caller and permitted account/user/record separately. See
 
 ## 4. Choose Hosting Only When Needed
 
-The mock runs on your computer. A real feature may need supported HubSpot project
-functions or an external backend, such as Cloudflare, Vercel or another host.
-Use [hosting options](hosting-options.md); check feature availability, runtime,
-HTTPS, secrets, storage, costs and rollback before choosing.
+The mock runs on your computer. Some cards can use HubSpot UI capabilities alone
+and need no separate backend. When extra server-side work is needed, compare
+HubSpot project functions, an existing approved service, and external options
+such as Cloudflare or Vercel. Use [the hosting decision guide](hosting-options.md)
+to check why you need a service, what data it would handle, and what it would cost.
 
 Do not assume the local Node server runs unchanged on every serverless host.
 Existing OAuth, hosting or a companion starter may help, but none is mandatory
@@ -104,7 +105,7 @@ sanitized test note; never commit credentials or customer details.
 
 ## 6. Decide What Comes Next
 
-Review [the real-use checklist](../REAL_TOOL_CHECKLIST.md) and
+Review [the real-use checklist](REAL_TOOL_CHECKLIST.md) and
 [implementation responsibility](implementation-responsibility.md).
 Production needs a separate decision, security/permission review and operation
 plan. A developer-account test does not verify production readiness.

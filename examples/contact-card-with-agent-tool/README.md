@@ -3,7 +3,7 @@
 **Example status:** Runnable locally.
 **Local check:** `npm run smoke:example` from the repository root, after the documented setup.
 **Developer-account verification:** Not verified.
-**Production prerequisites:** Review [the checklist](../../REAL_TOOL_CHECKLIST.md) and [evidence](../../EVIDENCE.md); no production implementation is included.
+**Production prerequisites:** Review [the checklist](../../docs/REAL_TOOL_CHECKLIST.md) and [evidence](../../docs/EVIDENCE.md); no production implementation is included.
 
 Mock backend; full React tests need the reviewed optional UI packages. The project scaffold has not been cloud-build verified.
 
@@ -51,6 +51,11 @@ The UI view uses React.createElement so tests need no extra JSX compiler package
   **outside the uploaded source**. It is not wired to this card-only backend.
 
 ## Configure A Developer-Account Trial
+
+For a first card trial with made-up data only, start with the
+[local proxy walkthrough](../../docs/first-live-test.md). The options below
+describe adapting this illustrative scaffold for a separately approved backend
+and live read. A public host is not required for the local proxy trial.
 
 Do this only after approval for the exact app/account and synthetic record.
 
