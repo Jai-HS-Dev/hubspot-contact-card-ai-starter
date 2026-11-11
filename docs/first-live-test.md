@@ -51,7 +51,7 @@ If any box is unchecked, stop here. Nothing is wrong; you are simply not ready.
 ## Record The Result
 
 Keep the full note private. Add only a short, cleaned-up summary to
-[EVIDENCE.md](../EVIDENCE.md).
+[EVIDENCE.md](EVIDENCE.md).
 
 ```text
 Date:
@@ -79,5 +79,5 @@ covers validation and going back to an earlier build.
 
 A working card in a test account is a learning milestone. It is not a security
 review and not approval for real customers. Before real use, go through the
-[live-use checklist](../REAL_TOOL_CHECKLIST.md) and
+[live-use checklist](REAL_TOOL_CHECKLIST.md) and
 [implementation responsibility](implementation-responsibility.md).

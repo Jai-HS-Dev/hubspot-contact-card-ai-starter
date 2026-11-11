@@ -3,7 +3,7 @@
 **Example status:** Illustrative.
 **Local check:** No complete runnable/project check is claimed for this illustrative folder.
 **Developer-account verification:** Not verified.
-**Production prerequisites:** Review [the checklist](../../REAL_TOOL_CHECKLIST.md) and [evidence](../../EVIDENCE.md); no production implementation is included.
+**Production prerequisites:** Review [the checklist](../../docs/REAL_TOOL_CHECKLIST.md) and [evidence](../../docs/EVIDENCE.md); no production implementation is included.
 
 Handler/card pattern only. No installable package is supplied; use the reviewed
 [Contact Brief example](../contact-card-with-agent-tool/README.md) for UI setup.
@@ -23,7 +23,7 @@ For HubSpot hosting, create a Developer Project on platform `2026.09` and config
 the function's metadata and required product entitlements using the current docs.
 Do not upload it as a legacy Design Manager `serverless.json` package. Managed
 project functions use Node.js 24; the handler already returns asynchronously.
-See `../../MIGRATION.md` for deadlines. Do not change hosting or credentials solely
+See `../../docs/MIGRATION.md` for deadlines. Do not change hosting or credentials solely
 because this example's documentation was updated.
 
 ## Files

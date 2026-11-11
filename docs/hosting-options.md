@@ -12,7 +12,7 @@ Best for simple HubSpot project logic that can live inside HubSpot's app project
 
 Use Developer Projects, not legacy Design Manager functions. Project functions
 on platform `2026.03` or `2026.09` use HubSpot-managed Node.js 24. The legacy
-`/_hcms/api/` surface has separate retirement dates listed in `../MIGRATION.md`.
+`/_hcms/api/` surface has separate retirement dates listed in `MIGRATION.md`.
 Confirm current product entitlements and function metadata before deploying the
 mock example. External hosting and OAuth remain valid choices where needed.
 

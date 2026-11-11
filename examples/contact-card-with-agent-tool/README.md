@@ -3,7 +3,7 @@
 **Example status:** Runnable locally.
 **Local check:** `npm run smoke:example` from the repository root, after the documented setup.
 **Developer-account verification:** Not verified.
-**Production prerequisites:** Review [the checklist](../../REAL_TOOL_CHECKLIST.md) and [evidence](../../EVIDENCE.md); no production implementation is included.
+**Production prerequisites:** Review [the checklist](../../docs/REAL_TOOL_CHECKLIST.md) and [evidence](../../docs/EVIDENCE.md); no production implementation is included.
 
 Mock backend; full React tests need the reviewed optional UI packages. The project scaffold has not been cloud-build verified.
 
