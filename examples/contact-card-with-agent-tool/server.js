@@ -44,7 +44,8 @@ function createServer({ env = process.env, fetchImpl = fetch, now = Date.now } =
       if (typeof contactId !== 'string' || !/^[a-zA-Z0-9_-]{1,100}$/.test(contactId) || (!mock && !/^\d+$/.test(contactId))) {
         return send(400, { error: 'Valid contactId is required' });
       }
-      let brief = `Sample contact brief for ${contactId}.`;
+      let brief = `Sample contact brief for ${contactId}. Lifecycle stage: Lead (sample).`;
+      let nextStep = 'Confirm what the lead needs before following up.';
       if (!mock) {
         const api = new URL(`https://api.hubapi.com/crm/objects/${version}/contacts/${contactId}`);
         api.searchParams.set('properties', 'firstname,lastname,company,lifecyclestage');
@@ -53,8 +54,9 @@ function createServer({ env = process.env, fetchImpl = fetch, now = Date.now } =
         if (!result.ok) return send(502, { error: 'Contact lookup unavailable' });
         const p = (await result.json()).properties || {};
         brief = `${[p.firstname, p.lastname].filter(Boolean).join(' ') || 'Contact'} at ${p.company || 'unknown company'}: ${p.lifecyclestage || 'unknown stage'}.`;
+        nextStep = 'Review the record before following up.';
       }
-      return send(200, { hs_execution_state: 'SUCCESS', outputFields: { brief, nextStep: 'Review the record before following up.', status: mock ? 'sample' : 'live' } });
+      return send(200, { hs_execution_state: 'SUCCESS', outputFields: { brief, nextStep, status: mock ? 'sample' : 'live' } });
     } catch { return send(500, { error: 'Unable to load contact brief' }); }
   });
 }

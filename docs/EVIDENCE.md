@@ -1,5 +1,34 @@
 # Evidence And Support
 
+## Developer Test Account Build And Install
+
+On 2026-11-11, the HubSpot CLI scaffolded an isolated private static-auth
+project on platform 2026.09. The pilot used the starter's card view, the
+existing locked UI dependencies, and an example URL for the local proxy.
+The CLI validator, HubSpot build, test-account deploy, and first app
+installation succeeded. No CRM read/write scopes or public backend were
+configured. HubSpot automatically added its required `oauth` scope group.
+
+In the follow-up trial, the app card appeared on a synthetic contact after
+Contacts read and view placement were configured. The browser blocked local
+network access, so that observation confirms placement, not delivery of the
+mock brief. Live signing and record authorization remain unverified. This was
+the backend-connected pilot, not an account test of the new checklist example.
+
+## Follow-Up Brief Pilot
+
+Checked 2026-11-11 on Windows with Node.js 24.22.1. The local preview shows
+a fixed sample lifecycle stage and a follow-up suggestion. The backend test
+requests two synthetic IDs, checks each returned brief against the requested
+ID, and confirms that mock mode makes no CRM calls.
+
+- Readiness, syntax, doctor, smoke, and preview commands passed. Core tests:
+  28 passed, none skipped. Signed-request tests used synthetic caller metadata.
+- The optional SDK UI suite was not run; its dependencies were not installed.
+- The developer-account walkthrough is prepared, not verified. No app was
+  uploaded or installed for this check. Actual HubSpot signing, user/record
+  authorization, and production readiness remain unverified.
+
 ## README And Preview Update Verification
 
 Checked 2026-11-10 on Linux with Node.js 22.23.4 and 24.22.2, in an automated run by an AI

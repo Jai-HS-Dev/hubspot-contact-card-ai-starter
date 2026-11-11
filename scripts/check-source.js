@@ -18,5 +18,5 @@ function walk(dir) {
     }
   }
 }
-for (const directory of ['scripts', 'tests', 'examples/contact-card-with-agent-tool']) walk(path.join(process.cwd(), directory));
+for (const directory of ['scripts', 'tests', 'examples/contact-card-with-agent-tool', 'examples/follow-up-checklist-card']) walk(path.join(process.cwd(), directory));
 console.log('Syntax check passed for ' + count + ' source and test modules.');

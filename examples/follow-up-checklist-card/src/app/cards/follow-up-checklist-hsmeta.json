@@ -1,0 +1,10 @@
+{
+  "uid": "example_follow_up_checklist_card",
+  "type": "card",
+  "config": {
+    "name": "Example Follow-up Checklist",
+    "location": "crm.record.tab",
+    "entrypoint": "/app/cards/FollowUpChecklist.jsx",
+    "objectTypes": ["contacts"]
+  }
+}

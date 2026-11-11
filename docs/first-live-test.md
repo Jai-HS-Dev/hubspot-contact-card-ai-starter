@@ -1,8 +1,9 @@
 # First Test Inside HubSpot
 
-> **Status:** written 2026-11-10 from HubSpot's official documentation. The
-> maintainer has **not yet run these steps end to end**. Use them as a checklist
-> to confirm, not as a guarantee, and record what really happened.
+> **Status:** a new pilot app built and installed in a developer test account
+> on 2026-11-11. The card appeared on a synthetic contact after the scope and
+> view were configured. Local proxy delivery is **not verified end to end**.
+> See [the evidence](EVIDENCE.md) and record your own results.
 
 ## What This Is
 
@@ -36,8 +37,11 @@ If any box is unchecked, stop here. Nothing is wrong; you are simply not ready.
    generated app identity and card metadata, including the Contacts object type.
    In the card folder, use the example's `ContactBriefView.js` and its
    `ContactBriefCard.jsx` entry point (update the card's entry point to match).
-   Do not copy the starter's illustrative OAuth app metadata or request
-   additional CRM permissions just to render the sample.
+   Do not copy the starter's illustrative OAuth app metadata. Keep
+   [the minimum Contacts read scope](https://developers.hubspot.com/docs/apps/developer-platform/add-features/ui-extensions/extension-points/app-cards/reference#supported-objects)
+   so HubSpot can show the card on a contact. This is account-level read
+   permission, even though the mock does not use it. Keep the platform's
+   required `oauth` scope if present. Do not grant CRM write or unrelated scopes.
 3. **Map the card to your computer.** In the new app's card entry point set the
    endpoint to `https://contact-brief.example.com/api/contact-brief`, and allow
    that endpoint in the app's `permittedUrls.fetch`. This is a reserved example
@@ -67,10 +71,28 @@ If any box is unchecked, stop here. Nothing is wrong; you are simply not ready.
    account. Run `hs project dev`. Before opening a contact, confirm the CLI
    detected the proxy. If the CLI does not detect it, stop and check the
    metadata location and origin; do not add a tunnel or disable validation.
+   [Add the app card to the approved Contacts test view](https://developers.hubspot.com/docs/apps/developer-platform/add-features/ui-extensions/extension-points/app-cards/create-an-app-card#view-the-card-in-hubspot).
 6. **Open one made-up contact in the test account.** Look for the local
-   development indicator, a remapped request in the CLI, and `Status: sample`
-   on the card. Compare the ID in the made-up brief with the open test record
-   privately. Record the result without copying the ID or sharing a screenshot.
+   development indicator and a remapped request in the CLI. The card should
+   show `Lifecycle stage: Lead (sample).`, a follow-up suggestion, and
+   `Status: sample`. The stage is fixed for this exercise; it is not read
+   from the contact. Compare the ID in the brief with the open test record
+   privately, then click **Refresh** and verify the same result. Do not
+   copy the ID into your report or share a screenshot containing it.
+   If the browser blocks local network access, use only the site-specific
+   permission on your approved test machine, or try the
+   [backend-free checklist](../examples/follow-up-checklist-card/README.md).
+   Do not disable browser security or override an organization policy.
+
+## Separate Authorization Check
+
+From the starter root, run `npm run test:core` (`npm.cmd run test:core` in
+Windows PowerShell). The signed backend tests use a simulated HubSpot caller
+and check that unsigned, stale, or wrong-app/account/user requests cannot reach
+the CRM lookup. The mock trial above does not exercise those checks. Before a
+real read, separately verify HubSpot's actual signing and whether the specific
+user is allowed to see the requested record. A matching record ID alone is not
+record-level authorization.
 
 ## Record The Result
 
@@ -85,6 +107,8 @@ Platform version in hsproject.json:
 Tool versions (Node.js, HubSpot command-line tool):
 Validation result:
 What I saw on the test contact:
+Did the brief match the open record and stay correct after refresh:
+Separate signed backend check (simulated caller):
 What I had to change to make it work:
 Not tested:
 ```

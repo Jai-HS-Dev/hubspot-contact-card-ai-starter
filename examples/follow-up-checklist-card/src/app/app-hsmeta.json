@@ -1,0 +1,16 @@
+{
+  "uid": "example_follow_up_checklist_app",
+  "type": "app",
+  "config": {
+    "name": "Example Follow-up Checklist",
+    "description": "Learning card with sample steps and no separate backend.",
+    "distribution": "private",
+    "auth": {
+      "type": "static",
+      "requiredScopes": ["oauth", "crm.objects.contacts.read"],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": { "fetch": [], "iframe": [], "img": [] }
+  }
+}

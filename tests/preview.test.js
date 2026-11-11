@@ -11,6 +11,8 @@ test('preview renders the made-up sample and says it is not HubSpot', async () =
   try {
     const html = render(await loadSampleBrief());
     assert.ok(html.includes('Sample contact brief for sample-1.'));
+    assert.ok(html.includes('Lifecycle stage: Lead (sample).'));
+    assert.ok(html.includes('Next step: Confirm what the lead needs before following up.'));
     assert.ok(html.includes('Status: sample'));
     assert.match(html, /Preview with made-up data/);
     assert.match(html, /not HubSpot/);

@@ -29,6 +29,11 @@ When I can recognize the sample result, propose one small change, the file to
 edit, and how to check it. Read the relevant contract and example README before
 editing. Keep the local sample working.
 
+Before recommending a service, use docs/hosting-options.md to explain what work
+needs a backend, what can stay inside HubSpot, and whether a local test or an
+existing approved host is enough. If a new host is needed, ask what I prefer.
+Compare setup, data exposure, costs and maintenance before I choose.
+
 Follow AGENTS.md. No secrets or customer data in chat. Sharing this repo is not
 approval to install packages, sign in, change permissions, publish, deploy, or
 touch live data. Finish with what actually ran, what is still unverified, and
@@ -41,6 +46,8 @@ one next decision.
 Show the local card preview and explain how to recognize sample, empty and error states. The preview is not a card installed in HubSpot.
 
 **A later decision:** For an approved test-account trial, use `docs/first-live-test.md`. Do not deploy the mock backend or use real CRM records for the exercise.
+
+**Build something:** [Build the backend-free checklist](examples/follow-up-checklist-card/README.md) to try a card inside HubSpot after the local result.
 
 Report actual results separately from instructions or plans. See
 [what was tested](docs/EVIDENCE.md) for this starter's verification limits.

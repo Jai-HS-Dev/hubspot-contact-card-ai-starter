@@ -14,6 +14,7 @@
                     "check:ai":  "node scripts/ai-readiness-check.js",
                     "smoke:example":  "node scripts/smoke-example.js",
                     "preview": "node scripts/preview-card.js",
+                    "build:example": "node examples/follow-up-checklist-card/preview.mjs",
                     "doctor":  "node scripts/doctor.js"
                 },
     "engines":  {
