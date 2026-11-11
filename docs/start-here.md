@@ -75,6 +75,10 @@ short check finishes. The smoke check leaves no server running.
 If you separately start a long-running example, press **Ctrl+C in that example's
 terminal** to stop it; do not stop unrelated programs.
 
+Optional: to see the sample as a page, run `npm run preview` (`npm.cmd run preview`
+in Windows PowerShell) and open the file it names in your browser. It is a sketch
+with made-up data, not HubSpot.
+
 You may stop here: the first local result is complete. The mock card backend returns a sample brief. This first check does not display or install a card inside HubSpot.
 If it fails, use [troubleshooting](troubleshooting.md). Never disable authentication,
 grant extra scopes or enter production credentials just to make a check pass.
